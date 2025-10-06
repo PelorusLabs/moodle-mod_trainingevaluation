@@ -1,0 +1,49 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template mod_trainingevaluation/item_config_textinput
+
+    Template for the text input item config modal content.
+
+    Classes required for JS:
+    * none
+
+    Data attributes required for JS:
+    * none
+
+    Context variables required for this template:
+    * text - Placeholder text
+    * maxlength - Max allowed length of text input
+
+    Example context (json):
+    {
+        "text": "Example",
+        "maxlength: 140,
+        "rows": 3
+    }
+}}
+
+<div class="form-group">
+    <label for="editplaceholdertext">{{#str}} placeholdertext, trainingevaluation {{/str}}</label>
+    <textarea class="form-control" id="editplaceholdertext" rows="4">{{text}}</textarea>
+    <small class="form-text text-muted">{{#str}} placeholdertext_help, trainingevaluation {{/str}}</small>
+    <label for="editmaxlength">{{#str}} maxlength, trainingevaluation{{/str}}</label>
+    <input type="number" class="form-control" id="editmaxlength" value="{{maxlength}}">
+    <label for="editrows">{{#str}} rows, trainingevaluation {{/str}}</label>
+    <input type="number" class="form-control" id="editrows" value="{{rows}}">
+    <small class="form-text text-muted">{{#str}} maxlength_help, trainingevaluation{{/str}}</small>
+</div>

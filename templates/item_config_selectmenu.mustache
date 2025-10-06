@@ -1,0 +1,73 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template mod_trainingevaluation/item_config_selectmenu
+
+    Template for the select menu item config modal content.
+
+    Classes required for JS:
+    * none
+
+    Data attributes required for JS:
+    * none
+
+    Context variables required for this template:
+    * options - List of select menu options
+
+    Example context (json):
+    {
+        "options": [{"value": "Pass"}, {"value":"Fail"}]
+    }
+}}
+
+<div class="form-group">
+    <label for="editselectoptions">{{#str}} selectoptions, trainingevaluation {{/str}}</label>
+
+    <div id="selectmenu-options-container" class="mb-2">
+        {{#options}}
+            <div class="input-group mb-2 selectmenu-option-row">
+                <input type="text" class="form-control selectmenu-option-input" value="{{value}}" />
+                <div class="input-group-append">
+                    <button type="button" class="btn btn-danger selectmenu-remove-option">
+                        <i class="fa fa-trash"></i>
+                    </button>
+                </div>
+            </div>
+        {{/options}}
+        {{^options}}
+            <div class="input-group mb-2 selectmenu-option-row">
+                <input type="text" class="form-control selectmenu-option-input" value="" placeholder="{{#str}} enteroption, trainingevaluation {{/str}}" />
+                <div class="input-group-append">
+                    <button type="button" class="btn btn-danger selectmenu-remove-option">
+                        <i class="fa fa-trash"></i>
+                    </button>
+                </div>
+            </div>
+        {{/options}}
+    </div>
+
+    <button type="button" id="selectmenu-add-option" class="btn btn-secondary">
+        <i class="fa fa-plus"></i> {{#str}} addoption, trainingevaluation {{/str}}
+    </button>
+
+    <input type="hidden" id="editselectmenuoptions" name="editselectmenuoptions" value="" />
+</div>
+{{#js}}
+    require(['mod_trainingevaluation/item_config_selectmenu'], function(module) {
+        module.init();
+    });
+{{/js}}

@@ -1,0 +1,58 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template mod_trainingevaluation/edit_item_modal
+
+    Template for the edit item modal content.
+
+    Classes required for JS:
+    * none
+
+    Data attributes required for JS:
+    * none
+
+    Context variables required for this template:
+    * name - Item Name
+    * description - Item Description
+    * isrequired - Is item required for completion
+    * typeConfigHtml - Item Type config template HTML
+
+    Example context (json):
+    {
+        "name": "Example",
+        "description": "Example"
+        "isrequired": true,
+        "typeConfigHtml": ""
+    }
+}}
+
+<div class="mod-trainingevaluation-edit-item-form">
+    <div class="form-group">
+        <label for="edititemname">{{#str}}itemname, trainingevaluation{{/str}}</label>
+        <input type="text" class="form-control" id="edititemname" name="edititemname"
+               value="{{name}}" required>
+        <label for="edititemdescription">{{#str}}itemdescription, trainingevaluation{{/str}}</label>
+        <textarea class="form-control" id="edititemdescription" name="edititemdescription" rows="3">{{description}}</textarea>
+        <label for="edititemisrequired">{{#str}} isitemrequired, trainingevaluation {{/str}}</label>
+        <input type="checkbox" class="form-checkbox" id="edititemisrequired" name="edititemisrequired" {{#isrequired}}checked{{/isrequired}}>
+    </div>
+
+    {{! Type-specific configuration will be inserted here }}
+    <div id="mod-trainingevaluation-item-type-config">
+        {{{typeConfigHtml}}}
+    </div>
+</div>
