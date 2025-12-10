@@ -240,12 +240,12 @@ class evaluation extends \core\persistent {
 
         $sql = "SELECT
                     COUNT(DISTINCT r.itemid) as completed_count
-                FROM mdl_trainingevaluation_evaluations eva
-                JOIN mdl_trainingevaluation_sections s
+                FROM {trainingevaluation_evaluations} eva
+                JOIN {trainingevaluation_sections} s
                     ON s.wtid = eva.wtid
-                JOIN mdl_trainingevaluation_section_items si
+                JOIN {trainingevaluation_section_items} si
                     ON si.sectionid = s.id
-                JOIN mdl_trainingevaluation_responses r
+                JOIN {trainingevaluation_responses} r
                     ON r.itemid = si.id AND r.userid = eva.userid AND r.version = eva.version
                 WHERE
                     eva.wtid = :wtid
