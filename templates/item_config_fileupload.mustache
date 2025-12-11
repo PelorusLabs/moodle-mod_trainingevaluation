@@ -42,6 +42,6 @@
 </div>
 {{#js}}
     require(['core_form/filetypes'], function(filetypes) {
-        filetypes.init('editfiletypes', 'Accepted File Types', [], true);
+        filetypes.init('editfiletypes', {{#str}} acceptedfiletypes, trainingevaluation {{/str}}, [], true);
     });
 {{/js}}

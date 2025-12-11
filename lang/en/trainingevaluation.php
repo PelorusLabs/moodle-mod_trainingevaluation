@@ -44,6 +44,7 @@ $string['deletesectionconfirm'] = 'Are you sure you want to delete {$a}?';
 $string['edititem'] = 'Edit Item';
 $string['editsection'] = 'Edit Section';
 $string['editsections'] = 'Edit Sections';
+$string['enteritemname'] = 'Please enter a item name';
 $string['enteroption'] = 'Enter Option';
 $string['entityevaluation'] = 'Evaluation Entity';
 $string['entityuserenrolment'] = 'User Enrolment Entity';

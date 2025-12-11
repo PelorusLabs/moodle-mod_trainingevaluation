@@ -143,7 +143,7 @@ const showEditItemModal = async (trainingevaluationId, itemId) => {
             const itemName = itemNameInput.val().trim();
 
             if (!itemName) {
-                Notification.alert('', 'Please enter a item name');
+                Notification.alert('', getString('enteritemname', 'trainingevaluation'));
                 return;
             }
 
