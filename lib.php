@@ -58,6 +58,7 @@ function trainingevaluation_add_instance(stdClass $data, mod_trainingevaluation_
     global $DB;
 
     $data->timecreated = time();
+    $data->timemodified = $data->timecreated;
     $data->id = $DB->insert_record('trainingevaluation', $data);
 
     return $data->id;
