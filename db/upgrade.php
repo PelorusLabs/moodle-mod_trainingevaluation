@@ -29,5 +29,28 @@
  * @return bool result
  */
 function xmldb_trainingevaluation_upgrade($oldversion) {
+    global $DB;
+
+    $dbman = $DB->get_manager();
+
+    if ($oldversion < 2025121101) {
+        // Define field timemodified to be added to trainingevaluation.
+        $table = new xmldb_table('trainingevaluation');
+        $field = new xmldb_field('timemodified', XMLDB_TYPE_INTEGER, '10', null, null, null, null, 'completiononrequired');
+
+        // Conditionally launch add field timemodified.
+        if (!$dbman->field_exists($table, $field)) {
+            $dbman->add_field($table, $field);
+        }
+
+        $DB->execute("UPDATE {trainingevaluation} SET timemodified = :time WHERE timemodified IS NULL", ['time' => time()]);
+
+        $field = new xmldb_field('timemodified', XMLDB_TYPE_INTEGER, '10', null, XMLDB_NOTNULL, null, null, 'completiononrequired');
+        $dbman->change_field_notnull($table, $field);
+
+        // Trainingevaluation savepoint reached.
+        upgrade_mod_savepoint(true, 2025121101, 'trainingevaluation');
+    }
+
     return true;
 }
