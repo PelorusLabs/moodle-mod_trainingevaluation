@@ -702,7 +702,7 @@ const showItemModal = async (trainingevaluationId, sectionId) => {
             const itemName = itemNameInput.val().trim();
             const itemDescriptionInput = modal.getRoot().find('#newitemdescription');
             const itemDescription = itemDescriptionInput.val().trim();
-            const itemIsRequired = modal.getRoot().find('#edititemisrequired').is(':checked');
+            const itemIsRequired = modal.getRoot().find('#newitemisrequired').is(':checked');
             const itemTypeInput = modal.getRoot().find('#newitemtype');
             const itemType = itemTypeInput.val().trim();
 
